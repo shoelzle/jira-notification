@@ -15,6 +15,7 @@ import net.rcarz.jiraclient.JiraException;
 import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Date;
 
 /**
  * Jira Notification Plugin
@@ -86,7 +87,8 @@ public class JiraNotification implements NotificationPlugin {
         String jobgroup =  (!isBlank(groupPath.toString()) ? groupPath + "/" : "");
         String jobdesc = (String)jobdata.get("description");
         String emoticon = (trigger.equals("success") ? "(/)" : "(x)");
-        Timestamp date = (trigger.equals("running") ? (Timestamp)executionData.get("dateStarted") : (Timestamp)executionData.get("dateEnded"));
+        Date date = (trigger.equals("running") ? (Date)executionData.get("dateStarted") : (Date)executionData.get("dateEnded"));
+        Timestamp tdate = new Timestamp(date.getTime());
 
         StringBuilder sb = new StringBuilder();
 
@@ -94,7 +96,7 @@ public class JiraNotification implements NotificationPlugin {
         sb.append("h3. ").append(emoticon).append(" [#"+executionData.get("id"));
         sb.append(" ").append(executionData.get("status"));
         sb.append(" by " + executionData.get("user"));
-        sb.append(" at ").append(date);
+        sb.append(" at ").append(tdate);
         sb.append("|").append(executionData.get("href")).append("]\n");
 
         sb.append("\n");
