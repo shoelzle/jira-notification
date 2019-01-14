@@ -18,11 +18,11 @@ The resulting jar will be found in `build/libs`.
 
 Copy the  jar to Rundeck plugins directory. For example, on an RPM installation:
 
-    cp build/libs/jira-notification-1.0.0.jar /var/lib/rundeck/libext
+    cp build/libs/jira-notification-1.1.0.jar /var/lib/rundeck/libext
 
 or for a launcher:
 
-    cp build/libs/jira-notification-1.0.0.jar $RDECK_BASE/libext
+    cp build/libs/jira-notification-1.1.0.jar $RDECK_BASE/libext
 
 Then restart the Rundeck service.
 

@@ -1,4 +1,4 @@
-version = '1.0.0'
+version = '1.1.0'
 defaultTasks 'clean','build'
 apply plugin: 'java'
 apply plugin: 'idea'
@@ -14,7 +14,7 @@ ext.pluginClassNames='org.rundeck.plugins.notification.JiraNotification'
 
 repositories {
     mavenCentral()
-    
+
     flatDir {
         dirs 'lib'
     }
@@ -33,9 +33,9 @@ configurations{
 dependencies {
     // add any third-party jar dependencies you wish to include in the plugin
     // using the `pluginLibs` configuration as shown here:
-    
+
     pluginLibs group: 'net.rcarz', name: 'jira-client', version: '0.3'
-    
+
     //the compile dependency won't add the rundeck-core jar to the plugin contents
     compile group: 'org.rundeck', name: 'rundeck-core', version: '1.6.2'
 }
